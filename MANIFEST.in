@@ -1,0 +1,4 @@
+include README.rst
+include requirements.txt
+recursive-include core_module_chemical_composition_app/static *
+recursive-include core_module_chemical_composition_app/templates *
