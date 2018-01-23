@@ -1,0 +1,26 @@
+<table class="table table-striped element-list">
+    <thead><tr>
+        <th>Element</th>
+        <th>Quantity</th>
+        {% if purity %}
+           <th>Purity</th>
+        {% endif %}
+        {% if error %}
+           <th>Error</th>
+        {% endif %}
+    </tr></thead>
+    <tbody>
+        {% for item in data %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                {% if purity %}
+                   <td>{{ item.purity }}</td>
+                {% endif %}
+                {% if error %}
+                   <td>{{ item.error }}</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
