@@ -2,21 +2,13 @@
 """
 import json
 
-from django.template import loader
-from xml_utils.xsd_tree.xsd_tree import XSDTree
+from core_module_chemical_composition_app.api import render_chemical_composition, get_chemical_composition_popup_content
 from core_parser_app.tools.modules.views.builtin.popup_module import AbstractPopupModule
-from core_parser_app.tools.modules.views.module import AbstractModule
 
 
 class ChemicalCompositionModule(AbstractPopupModule):
     def __init__(self):
-
-        template = AbstractModule.render_template('core_module_periodic_table_app/periodic.html')
-        popup_content = AbstractModule.render_template('core_module_chemical_composition_app/'
-                                                       'chemical_composition.html',
-                                                       {'periodic_table': template})
-
-        AbstractPopupModule.__init__(self, popup_content=popup_content, button_label='Select Element',
+        AbstractPopupModule.__init__(self, button_label='Select elements',
                                      styles=['core_module_periodic_table_app/css/periodic.css',
                                              'core_module_chemical_composition_app/css/'
                                              'chemical_element_composition.css'],
@@ -63,53 +55,16 @@ class ChemicalCompositionModule(AbstractPopupModule):
         Returns:
 
         """
-        return render_chemical_composition(self.data, True, True)
+        return render_chemical_composition(self.data, True, True,
+                                           'core_module_chemical_composition_app/render_data.html')
+
+    def _get_popup_content(self):
+        """ Return module's data rendering
+        """
+        # rendering data in the edit form
+        data_template = render_chemical_composition(self.data, True, True,
+                                                    'core_module_chemical_composition_app/edit_data.html')
+
+        return get_chemical_composition_popup_content(self.data, data_template)
 
 
-def render_chemical_composition(data_constituents, display_purity, display_error):
-    if len(data_constituents) > 0:
-        constituents = XSDTree.fromstring("<constituents>" + data_constituents + "</constituents>")
-
-        # build data to display
-        if len(constituents) > 0:
-            data = []
-            for constituent in constituents:
-                constituent_elements = list(constituent)
-                name = ''
-                quantity = ''
-                purity = ''
-                error = ''
-                for constituent_element in constituent_elements:
-                    if constituent_element.tag == 'element':
-                        if constituent_element.text is not None:
-                            name = constituent_element.text
-                    elif constituent_element.tag == 'quantity':
-                        if constituent_element.text is not None:
-                            quantity = constituent_element.text
-                    elif constituent_element.tag == 'purity':
-                        if constituent_element.text is not None:
-                            purity = constituent_element.text
-                    elif constituent_element.tag == 'error':
-                        if constituent_element.text is not None:
-                            error = constituent_element.text
-
-                item = {
-                    'name': name,
-                    'quantity': quantity,
-                    'purity': purity,
-                    'error': error
-                }
-
-                data.append(item)
-
-            # template loading with context
-            template = loader.get_template('core_module_chemical_composition_app/render_data.html')
-            context = {
-                'purity': display_purity,
-                'error': display_error,
-                'data': data
-            }
-
-            return template.render(context)
-        return 'No selected element.'
-    return 'No selected element.'
