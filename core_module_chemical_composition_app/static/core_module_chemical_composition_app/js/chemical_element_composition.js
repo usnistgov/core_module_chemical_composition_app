@@ -5,7 +5,6 @@ var chemicalElementCompositionPopupOptions = {
         // Initialization
         $(this).find('.sample-row').hide();
         $(this).find('.saved-data').hide();
-        $(this).find('.element-list .empty').hide();
     },
 }
 

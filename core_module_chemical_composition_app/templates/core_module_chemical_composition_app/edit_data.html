@@ -33,12 +33,13 @@
                     <td><span href="#" class="remove-element btn btn-default">Remove</span></td>
                 </tr>
             {% endfor %}
+        {% else %}
+            <tr class="empty">
+                <td colspan="5">
+                    No selected element. Please use the periodic table above.
+                </td>
+            </tr>
         {% endif %}
-        <tr class="empty">
-            <td colspan="5">
-                No selected element. Please use the periodic table above.
-            </td>
-        </tr>
     </tbody>
     <tfoot>
         <tr class="sample-row">

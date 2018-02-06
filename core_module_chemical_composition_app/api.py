@@ -37,23 +37,23 @@ def get_periodic_table_selected_elements(data_constituents):
     return selected_elements
 
 
-def render_chemical_composition(data_constituents, display_purity, display_error, template):
+def render_chemical_composition(data_constituents, display_purity, display_error, template_url):
     """ render elements from xml constituents using the given template
 
     Args:
         data_constituents:
         display_purity:
         display_error:
-        template:
+        template_url:
 
     Returns: selected_elements
     """
+    data = []
     if len(data_constituents) > 0:
         constituents = XSDTree.fromstring("<constituents>" + data_constituents + "</constituents>")
 
         # build data to display
         if len(constituents) > 0:
-            data = []
             for constituent in constituents:
                 constituent_elements = list(constituent)
                 name = ''
@@ -83,14 +83,14 @@ def render_chemical_composition(data_constituents, display_purity, display_error
 
                 data.append(item)
 
-            # template loading with context
-            template = loader.get_template(template)
-            context = {
-                'purity': display_purity,
-                'error': display_error,
-                'data': data
-            }
+    # context building
+    context = {
+        'purity': display_purity,
+        'error': display_error,
+        'data': data
+    }
 
-            return template.render(context)
-        return 'No selected element.'
-    return 'No selected element.'
+    # template loading with context
+    template = loader.get_template(template_url)
+    return template.render(context)
+
