@@ -41,7 +41,6 @@ class ChemicalCompositionModule(AbstractPopupModule):
                         element_list_xml += "<purity>" + element['pur'] + "</purity>"
                         element_list_xml += "<error>" + element['err'] + "</error>"
                         element_list_xml += '</constituent>'
-
                     # set the data
                     data = element_list_xml
         return data
