@@ -1,6 +1,6 @@
 var chemicalElementCompositionPopupOptions = {
     width: 800,
-    title: "Periodic Table",
+    title: "Chemical Composition",
     create: function(event, ui) {
         // Initialization
         $(this).find('.sample-row').hide();
