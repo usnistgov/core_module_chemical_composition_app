@@ -1,3 +1,3 @@
-core-parser-app==1.0.0-beta2
-core-module-periodic-table-app==1.0.0-beta2
+core-parser-app==1.0.0-beta3
+core-module-periodic-table-app==1.0.0-beta3
 xml_utils==1.0.0-beta1
