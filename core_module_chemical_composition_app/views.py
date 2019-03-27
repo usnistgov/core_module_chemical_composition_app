@@ -8,7 +8,7 @@ from core_parser_app.tools.modules.views.builtin.popup_module import AbstractPop
 
 class ChemicalCompositionModule(AbstractPopupModule):
     def __init__(self):
-        AbstractPopupModule.__init__(self, button_label='Select elements',
+        AbstractPopupModule.__init__(self, button_label='Select Elements',
                                      styles=['core_module_periodic_table_app/css/periodic.css',
                                              'core_module_chemical_composition_app/css/'
                                              'chemical_element_composition.css'],
