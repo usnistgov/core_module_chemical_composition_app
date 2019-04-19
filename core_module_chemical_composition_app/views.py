@@ -2,6 +2,8 @@
 """
 import json
 
+from xml_utils.xsd_tree.operations.xml_entities import XmlEntities
+from core_module_chemical_composition_app.settings import AUTO_ESCAPE_XML_ENTITIES
 from core_module_chemical_composition_app.api import render_chemical_composition, get_chemical_composition_popup_content
 from core_parser_app.tools.modules.views.builtin.popup_module import AbstractPopupModule
 
@@ -37,9 +39,9 @@ class ChemicalCompositionModule(AbstractPopupModule):
                     for element in element_list:
                         element_list_xml += '<constituent>'
                         element_list_xml += "<element>" + element['name'] + "</element>"
-                        element_list_xml += "<quantity>" + element['qty'] + "</quantity>"
-                        element_list_xml += "<purity>" + element['pur'] + "</purity>"
-                        element_list_xml += "<error>" + element['err'] + "</error>"
+                        element_list_xml += "<quantity>" + (XmlEntities().escape_xml_entities(element['qty']) if AUTO_ESCAPE_XML_ENTITIES else element['qty']) + "</quantity>"
+                        element_list_xml += "<purity>" + (XmlEntities().escape_xml_entities(element['pur']) if AUTO_ESCAPE_XML_ENTITIES else element['pur']) + "</purity>"
+                        element_list_xml += "<error>" + (XmlEntities().escape_xml_entities(element['err']) if AUTO_ESCAPE_XML_ENTITIES else element['err']) + "</error>"
                         element_list_xml += '</constituent>'
                     # set the data
                     data = element_list_xml
@@ -65,5 +67,3 @@ class ChemicalCompositionModule(AbstractPopupModule):
                                                     'core_module_chemical_composition_app/edit_data.html')
 
         return get_chemical_composition_popup_content(self.data, data_template)
-
-
