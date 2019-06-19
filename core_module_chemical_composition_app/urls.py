@@ -1,6 +1,7 @@
 """ Url router for the chemical composition module
 """
 from django.conf.urls import url
+
 from core_module_chemical_composition_app.views import ChemicalCompositionModule
 
 urlpatterns = [

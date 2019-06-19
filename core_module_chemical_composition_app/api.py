@@ -1,6 +1,7 @@
 """ Chemical composition API
 """
 from django.template import loader
+
 from core_parser_app.tools.modules.views.module import AbstractModule
 from xml_utils.xsd_tree.xsd_tree import XSDTree
 

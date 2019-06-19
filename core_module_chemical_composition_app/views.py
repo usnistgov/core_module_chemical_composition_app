@@ -2,10 +2,10 @@
 """
 import json
 
-from xml_utils.xsd_tree.operations.xml_entities import XmlEntities
-from core_module_chemical_composition_app.settings import AUTO_ESCAPE_XML_ENTITIES
 from core_module_chemical_composition_app.api import render_chemical_composition, get_chemical_composition_popup_content
+from core_module_chemical_composition_app.settings import AUTO_ESCAPE_XML_ENTITIES
 from core_parser_app.tools.modules.views.builtin.popup_module import AbstractPopupModule
+from xml_utils.xsd_tree.operations.xml_entities import XmlEntities
 
 
 class ChemicalCompositionModule(AbstractPopupModule):
