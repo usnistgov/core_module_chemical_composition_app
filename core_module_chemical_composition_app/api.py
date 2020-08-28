@@ -7,8 +7,7 @@ from xml_utils.xsd_tree.xsd_tree import XSDTree
 
 
 def get_chemical_composition_popup_content(data, edit_template):
-    """ Chemical_composition module's rendering
-    """
+    """Chemical_composition module's rendering"""
     # rendering data in the periodic table
     template = AbstractModule.render_template(
         "core_module_periodic_table_app/periodic.html",
@@ -23,7 +22,7 @@ def get_chemical_composition_popup_content(data, edit_template):
 
 
 def get_periodic_table_selected_elements(data_constituents):
-    """ get selected elements from xml constituents
+    """get selected elements from xml constituents
 
     Args:
         data_constituents:
@@ -46,7 +45,7 @@ def get_periodic_table_selected_elements(data_constituents):
 def render_chemical_composition(
     data_constituents, display_purity, display_error, template_url
 ):
-    """ render elements from xml constituents using the given template
+    """render elements from xml constituents using the given template
 
     Args:
         data_constituents:
