@@ -17,7 +17,10 @@ def get_chemical_composition_popup_content(data, edit_template):
     # rendering both form in the popup template
     return AbstractModule.render_template(
         "core_module_chemical_composition_app/chemical_composition.html",
-        {"periodic_table": template, "data_template": edit_template},
+        {
+            "periodic_table": template,
+            "data_template": edit_template,
+        },
     )
 
 

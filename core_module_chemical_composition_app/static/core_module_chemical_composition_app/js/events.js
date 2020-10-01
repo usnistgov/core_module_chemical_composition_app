@@ -1,11 +1,13 @@
+/** Event management script for the Chemical composition module */
 $(document).on('click', '.periodic-table-multiple td.p-elem', function(event) {
-    var chosenTable = openPopUp.find('.element-list');
+    let jqModuleOpenModal = $($("#modal-" + moduleElement[0].id)[0]);
+    let chosenTable = jqModuleOpenModal.find('.element-list');
     // if an element is already on the list (selected)
     // so we don't add it again
     if(!$(this).hasClass('selected')) {
-        var elementName = $(this).text();
+        let elementName = $(this).text();
         $(this).addClass('selected');
-        var newRow = chosenTable.find('tr.sample-row').clone();
+        let newRow = chosenTable.find('tr.sample-row').clone();
         newRow.show();
         newRow.removeClass('sample-row');
         newRow.find('td:first').text(elementName);
@@ -15,11 +17,12 @@ $(document).on('click', '.periodic-table-multiple td.p-elem', function(event) {
 });
 
 $(document).on('click', '.element-list .remove-element', function(event) {
-    var chosenTable = openPopUp.find('.element-list');
-    var currentRow = $(this).parent().parent();
+    let jqModuleOpenModal = $($("#modal-" + moduleElement[0].id)[0]);
+    let chosenTable = jqModuleOpenModal.find('.element-list');
+    let currentRow = $(this).parent().parent();
 
     // unselect the periodic table element
-    var elementText = $(currentRow).find("td:first").text();
+    let elementText = $(currentRow).find("td:first").text();
     $.each($('.periodic-table-multiple td.p-elem'), function(index, element){
         if($(element).text() === elementText){
             $(element).removeClass('selected');

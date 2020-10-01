@@ -23,8 +23,7 @@ class ChemicalCompositionModule(AbstractPopupModule):
             ],
             scripts=[
                 "core_module_chemical_composition_app/js/events.js",
-                "core_module_chemical_composition_app/js/"
-                "chemical_element_composition.js",
+                "core_module_chemical_composition_app/js/chemical_element_composition.js",
             ],
         )
 
@@ -104,4 +103,6 @@ class ChemicalCompositionModule(AbstractPopupModule):
             self.data, True, True, "core_module_chemical_composition_app/edit_data.html"
         )
 
-        return get_chemical_composition_popup_content(self.data, data_template)
+        return get_chemical_composition_popup_content(
+            data=self.data, edit_template=data_template
+        )
