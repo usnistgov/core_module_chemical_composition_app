@@ -3,7 +3,9 @@
 
 from django.urls import re_path
 
-from core_module_chemical_composition_app.views import ChemicalCompositionModule
+from core_module_chemical_composition_app.views import (
+    ChemicalCompositionModule,
+)
 
 urlpatterns = [
     re_path(
