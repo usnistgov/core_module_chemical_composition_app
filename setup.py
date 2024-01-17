@@ -21,7 +21,7 @@ chdir(normpath(join(abspath(__file__), pardir)))
 
 setup(
     name="core_module_chemical_composition_app",
-    version="2.7.0",
+    version="2.8.0",
     description="Chemical composition module for the parser core project",
     long_description=long_desc,
     author="NIST IT Lab",
