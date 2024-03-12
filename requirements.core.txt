@@ -1,2 +1,2 @@
-core-parser-app==2.8.*
-core-module-periodic-table-app==2.8.*
+core-parser-app==2.9.*
+core-module-periodic-table-app==2.9.*
