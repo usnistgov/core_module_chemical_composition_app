@@ -1,5 +1,6 @@
 """ Chemical composition API
 """
+
 from django.template import loader
 
 from core_parser_app.tools.modules.views.module import AbstractModule

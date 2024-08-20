@@ -1,5 +1,6 @@
 """ Chemical composition module view
 """
+
 import json
 
 from core_parser_app.tools.modules.views.builtin.popup_module import (
