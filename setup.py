@@ -1,5 +1,4 @@
-""" Setup core module chemical composition app
-"""
+"""Setup core module chemical composition app"""
 
 from os import chdir, pardir
 from os.path import join, exists, dirname, normpath, abspath

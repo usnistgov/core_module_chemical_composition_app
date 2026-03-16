@@ -1,5 +1,4 @@
-""" Chemical composition API
-"""
+"""Chemical composition API"""
 
 from django.template import loader
 
